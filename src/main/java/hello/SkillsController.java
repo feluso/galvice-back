@@ -2,6 +2,7 @@ package hello;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import profile.Skill;
 public class SkillsController {
 
 	@RequestMapping("/skills")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public ArrayList<Skill> getSkills() {
 		ArrayList<Skill> skillList = new ArrayList<>();
 		skillList.add(new Skill("Technical Profficency"));
