@@ -1,32 +1,34 @@
 package galvice.model;
 
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 
+
 @Entity
-@Table(name ="Me")
-public class Me extends AuditModel  {
+@Table
+public class Contact {
+
 
     @Id
-    @GeneratedValue(generator = "me_generator")
+    @GeneratedValue(generator = "contact_generator")
     @SequenceGenerator(
-            name = "me_generator",
-            sequenceName = "me_sequence",
+            name = "contact_generator",
+            sequenceName = "contact_sequence",
             initialValue = 1
     )
     private Long id;
 
     private String name;
     private String email;
-    private long number;
-
-    @Lob
-    @Column(length = 1024)
-    @Type(type = "org.hibernate.type.TextType")
     private String description;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -44,24 +46,6 @@ public class Me extends AuditModel  {
         this.email = email;
     }
 
-    public long getNumber() {
-        return number;
-    }
-
-    public void setNumber(long number) {
-        this.number = number;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
     public String getDescription() {
         return description;
     }
@@ -70,3 +54,4 @@ public class Me extends AuditModel  {
         this.description = description;
     }
 }
+
