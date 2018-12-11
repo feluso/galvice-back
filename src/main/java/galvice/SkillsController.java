@@ -1,6 +1,7 @@
 package galvice;
 
 import galvice.model.Skill;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class SkillsController {
 	@RequestMapping("/skills")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public List<Skill> getSkills() {
-		List<Skill> skills = skillsRepository.findAll();
+		List<Skill> skills = skillsRepository.findAllByOrderByIdAsc();
 		return skills;
 
 	}
