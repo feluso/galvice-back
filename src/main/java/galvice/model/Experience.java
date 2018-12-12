@@ -15,8 +15,10 @@ public class Experience extends AuditModel {
     )
     private Long id;
 
+    @Column(length=10000)
     private String icon;
     private String title;
+    @Column(length=2000)
     private String description;
 
 
